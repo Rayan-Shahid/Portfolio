@@ -35,7 +35,7 @@ export default function Loader() {
                         width: `${100 / panels.length}%`,
                         transitionDelay: `${index * 80}ms`
                     }}>
-                    {panel}
+                   
                 </div>
                ))
             }
