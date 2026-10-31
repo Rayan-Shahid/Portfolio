@@ -37,7 +37,7 @@ export default function Background (){
         <div className="fixed inset-0 z-0 pointer-events-none">
 
         {array.map((particles, index)=>(
-            <div className="absolute rounded-full bg-white" key={index} ref={(element)=> { if(element){ particlesRef.current[index] = element }  }}></div>
+            <div className="absolute rounded-full bg-[#A0430A]" key={index} ref={(element)=> { if(element){ particlesRef.current[index] = element }  }}></div>
         ))}
         </div>
     )
