@@ -1,6 +1,6 @@
-
-
 "use client";
+import ParticleText from './ParticleText'
+
 
 export default function Hero() {
   return (
@@ -11,9 +11,31 @@ export default function Hero() {
         <div className="container mx-auto">
 
                 <h1 className="text-6xl sm:text-[80px] leading-[.95]">
-                  <span>FRONTEND</span>
-                  <br />
-                  <span className="ml-4">DEVELOPER</span>
+                  <span style={{ width: '100%', height: 360 }}>
+                        <ParticleText
+                          text="FRONTEND DEVELOPER"
+                          particleSize={2.2}
+                          density={3}
+                          color="currentColor"
+                          highlightColor="#ff5a36"
+                          highlightMode="motion"
+                          shape="circle"
+                          intro="gather"
+                          scatter={190}
+                          gatherDuration={1600}
+                          stagger={420}
+                          clickBurst
+                          burstStrength={1}
+                          pointerRepel={42}
+                          repelRadius={120}
+                          idleDrift={0.8}
+                          trigger="mount"
+                          fontSize="clamp(3.5rem, 13vw, 9rem)"
+                          fontWeight={800}
+                          fontFamily="inherit"
+                          glow
+                        />
+                      </span>
                 </h1>
                 <p className="mt-6 text-lg max-w-lg">
                   Hey, I'm Rayan, a frontend developer passionate about
