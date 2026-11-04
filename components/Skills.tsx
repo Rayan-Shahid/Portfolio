@@ -8,10 +8,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { useRef } from 'react';
 
-type My_STACKitem = {
-    name: string;
-    icon: string;
-};
+
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 

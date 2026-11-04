@@ -2,6 +2,7 @@
 'use client';
 
 import SectionTitle from '@/components/SectionTitle';
+import { MY_EXPERIENCE } from '@/lib/data';
 // import Experience from '@/components/Experience';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -52,7 +53,19 @@ const Experience = () => {
         <section className="py-section" id="my-experience">
             <div className="container" ref={containerRef}>
                 <SectionTitle title="My Experience" />
-                <Experience />
+                <div className="grid gap-14">
+                    
+                    {MY_EXPERIENCE.map((item)=>(
+                    <div className='experience-item' key={item.title}>
+
+                    <p className='text-xl text-muted-foreground'>{item.company}</p>
+                    <p className='text-5xl font-anton leading-none mt-3.5 mb-2.5'> {item.title} </p>
+                    <p className='text-lg text-muted-foreground'> {item.duration} </p>
+                    </div>
+
+                    ))}
+
+                </div>
             </div>
         </section>
     );
