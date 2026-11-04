@@ -1,35 +1,43 @@
+"use client";
+import ProjectDetails from "./ProjectDetails";
+import { PROJECTS } from "../lib/data";
+import SectionTitle from "./SectionTitle";
+import { useState, useRef } from "react";
 
+export default function Projects() {
+  const imageContainer = useRef<HTMLDivElement>(null);
 
-import {PROJECTS} from '../lib/data'
-import SectionTitle from './SectionTitle'
-import Image from 'next/image'
+  const [SelectedProject, setSelectedProject] = useState<string | null>(
+    PROJECTS[0].slug,
+  );
 
-export default function Projects (){
-    return (
-        <section id='selected-projects' className='py-section'>
-            <div className="container">
-                <SectionTitle title='Main Project'/>
-                {PROJECTS.map((data, index)=>(
-                    <div className='project-item group leading-none py-5 md:border-b first:!pt-0 last:pb-0 last:border-none' key={data.slug}>
-                       <Image 
-                        src={data.thumbnail}
-                        alt={data.title}
-                        width={300}
-                        height={200}
-                        className='w-full object-cover mb-6 aspect-[3/2] object-top' />
-                        <div className="flex gap-2 md:gap-5">
-                            <div className='font-anton text-muted-foreground'>{(index + 1).toString().padStart(2, '0')}</div>
-                        <div>
-                        <h4 className='text-4xl xs:text-6xl font-anton'>{data.title}</h4>
-                        <div className='mt-2 flex flex-wrap gap-3 text-muted-foreground text-xs'>{data.techStack.slice(0,3).map((tech)=>(
-                            <span key={tech}>{tech}</span>
-                        ))}</div>
-                        </div>                       
-                        </div>
-                       
-                    </div>
-                ))}
-            </div>
-        </section>   
-    )
+  const handleMouseEnter = (slug: string) => {
+    setSelectedProject(slug);
+  };
+
+  return (
+    <section id="selected-projects" className="py-section">
+      <div className="container">
+        <SectionTitle title="Main Project" />
+        <div className="group/projects relative">
+          <div
+            ref={imageContainer}
+            className="absolute right-0 top-0 z-[1] pointer-events-none w-[200px] xl:w-[350px] aspect-[3/4] overflow-hidden opacity-0"
+          ></div>
+
+          <div className="flex flex-col max-md:gap-10">
+            {PROJECTS.map((data, index) => (
+              <ProjectDetails
+                key={data.slug}
+                project={data}
+                index={index}
+                SelectedProject={SelectedProject}
+                onMouseEnter={handleMouseEnter}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

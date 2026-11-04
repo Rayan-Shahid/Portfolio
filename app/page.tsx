@@ -12,15 +12,15 @@ import Projects from "@/components/Projects";
 export default function Home() {
   return (
     <>
-    <Loader />
-    <Navbar/>
-    <Hero />
-    <ProgressBar/>
-    <About/>
-    <Skills />
-    <Experience/>
-    <Projects/>
-    <Background />
+      <Loader />
+      <Navbar />
+      <Hero />
+      <ProgressBar />
+      <About />
+      <Skills />
+      <Experience />
+      <Projects />
+      <Background />
     </>
   );
 }
