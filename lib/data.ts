@@ -1,141 +1,137 @@
-export interface Project{
-    title: string,
-    slug: string,
-    year: string,
-    liveurl: string,
-    thumbnail: string,
-    techStack: string[],
-    description: string,
-    role: string
+export interface Project {
+  title: string;
+  slug: string;
+  year: string;
+  liveurl: string;
+  thumbnail: string;
+  techStack: string[];
+  description: string;
+  role: string;
 }
 type My_STACKitem = {
-    name: string,
-    icon: string
-}
-
+  name: string;
+  icon: string;
+};
 
 export const MY_STACK = {
-
-     Frontend: [
-        {
-            name: 'JavaScript',
-            icon: '/logo/js.png',
-        },
-        {
-            name: 'TypeScript',
-            icon: '/logo/ts.png',
-        },
-        {
-            name: 'React',
-            icon: '/logo/react.png',
-        },
-        {
-            name: 'Next.js',
-            icon: '/logo/next.png',
-        },
-        {
-            name: 'Redux',
-            icon: '/logo/redux.png',
-        },
-        {
-            name: 'Tailwind CSS',
-            icon: '/logo/tailwind.png',
-        },
-        {
-            name: 'GSAP',
-            icon: '/logo/gsap.png',
-        },
-        {
-            name: 'Framer Motion',
-            icon: '/logo/framer-motion.png',
-        },
-        {
-            name: 'Sass',
-            icon: '/logo/sass.png',
-        },
-        {
-            name: 'Bootstrap',
-            icon: '/logo/bootstrap.svg',
-        },
-    ],
-      Backend: [
-        {
-            name: 'Node.js',
-            icon: '/logo/node.png',
-        },
-        {
-            name: 'NestJS',
-            icon: '/logo/nest.svg',
-        },
-        {
-            name: 'Express.js',
-            icon: '/logo/express.png',
-        },
-    ],
-        Database: [
-                {
-                    name: 'MySQL',
-                    icon: '/logo/mysql.svg',
-                },
-                {
-                    name: 'PostgreSQL',
-                    icon: '/logo/postgreSQL.png',
-                },
-                {
-                    name: 'MongoDB',
-                    icon: '/logo/mongodb.svg',
-                },
-                {
-                    name: 'Prisma',
-                    icon: '/logo/prisma.png',
-                },
-            ],
-             Tools: [
-                {
-                    name: 'Git',
-                    icon: '/logo/git.png',
-                },
-                {
-                    name: 'Docker',
-                    icon: '/logo/docker.svg',
-                },
-                {
-                    name: 'AWS',
-                    icon: '/logo/aws.png',
-                },
-            ],
-
-}
+  Frontend: [
+    {
+      name: "JavaScript",
+      icon: "/logo/js.png",
+    },
+    {
+      name: "TypeScript",
+      icon: "/logo/ts.png",
+    },
+    {
+      name: "React",
+      icon: "/logo/react.png",
+    },
+    {
+      name: "Next.js",
+      icon: "/logo/next.png",
+    },
+    {
+      name: "Redux",
+      icon: "/logo/redux.png",
+    },
+    {
+      name: "Tailwind CSS",
+      icon: "/logo/tailwind.png",
+    },
+    {
+      name: "GSAP",
+      icon: "/logo/gsap.png",
+    },
+    {
+      name: "Framer Motion",
+      icon: "/logo/framer-motion.png",
+    },
+    {
+      name: "Sass",
+      icon: "/logo/sass.png",
+    },
+    {
+      name: "Bootstrap",
+      icon: "/logo/bootstrap.svg",
+    },
+  ],
+  Backend: [
+    {
+      name: "Node.js",
+      icon: "/logo/node.png",
+    },
+    {
+      name: "NestJS",
+      icon: "/logo/nest.svg",
+    },
+    {
+      name: "Express.js",
+      icon: "/logo/express.png",
+    },
+  ],
+  Database: [
+    {
+      name: "MySQL",
+      icon: "/logo/mysql.svg",
+    },
+    {
+      name: "PostgreSQL",
+      icon: "/logo/postgreSQL.png",
+    },
+    {
+      name: "MongoDB",
+      icon: "/logo/mongodb.svg",
+    },
+    {
+      name: "Prisma",
+      icon: "/logo/prisma.png",
+    },
+  ],
+  Tools: [
+    {
+      name: "Git",
+      icon: "/logo/git.png",
+    },
+    {
+      name: "Docker",
+      icon: "/logo/docker.svg",
+    },
+    {
+      name: "AWS",
+      icon: "/logo/aws.png",
+    },
+  ],
+};
 
 export const MY_EXPERIENCE = [
-    {
-        title: 'Software Engineer (Frontend)',
-        company: 'NP Marts',
-        duration: 'January 2026 - Present',
-    },
-    {
-        title: 'Frontend Developer',
-        company: 'Flaxtasks',
-        duration: 'August 2024 - Nov 2024',
-    },
-    {
-        title: 'Frontend Intern',
-        company: 'Flaxtasks',
-        duration: 'June 2024 - August 2024',
-    },
-    
+  {
+    title: "Software Engineer (Frontend)",
+    company: "NP Marts",
+    duration: "January 2026 - Present",
+  },
+  {
+    title: "Frontend Developer",
+    company: "Flaxtasks",
+    duration: "August 2024 - Nov 2024",
+  },
+  {
+    title: "Frontend Intern",
+    company: "Flaxtasks",
+    duration: "June 2024 - August 2024",
+  },
 ];
 
-
-export const PROJECTS: Project[]= [
-    {
-        title: 'FitMatch', // Fixed typo from 'titel'
-        slug: 'fitmatch',
-        liveurl: 'https://github.com/Tajmirul/portfolio-2.0/blob/main/app/_components/Project.tsx',
-        year: '2026',
-        thumbnail: '/logo/js.png', // Make sure to add this if your Project interface requires it
-        techStack: ['Next.js', 'Payload CMS', 'Tailwind CSS', 'Swiper.js'], // Common required array
-        description: `
+export const PROJECTS: Project[] = [
+  {
+    title: "FitMatch", // Fixed typo from 'titel'
+    slug: "fitmatch",
+    liveurl:
+      "https://github.com/Tajmirul/portfolio-2.0/blob/main/app/_components/Project.tsx",
+    year: "2026",
+    thumbnail: "/logo/js.png", // Make sure to add this if your Project interface requires it
+    techStack: ["Next.js", "Payload CMS", "Tailwind CSS", "Swiper.js"], // Common required array
+    description: `
                     A complete agency portfolio platform built for Electro EV to showcase their services, blog content, and product offerings. <br/> <br/>
                     
                     Key Features:<br/>
@@ -155,7 +151,7 @@ export const PROJECTS: Project[]= [
                         <li>Configured efficient data fetching strategies in Next.js</li>
                     </ul>
                     `,
-        role: `
+    role: `
                 Full-Stack Developer <br/>
                 Owned the entire development lifecycle:
                 <ul>
@@ -167,15 +163,15 @@ export const PROJECTS: Project[]= [
                     <li>🧩 Third-Party Integration: Added Swiper.js for interactive sliders</li>
                 </ul>
                 `,
-    },
-   {
-    title: 'Speech Emotion Recognition',
-        slug: 'speech-emotion-recognition',
-        liveurl: 'www.github.com',
-        year: '2026',
-        thumbnail: '/logo/js.png',
-        techStack: ['Python', 'TensorFlow', 'Librosa', 'Streamlit', 'Scikit-Learn'],
-        description: `
+  },
+  {
+    title: "Speech Emotion Recognition",
+    slug: "speech-emotion-recognition",
+    liveurl: "www.yts.com",
+    year: "2026",
+    thumbnail: "/logo/js.png",
+    techStack: ["Python", "TensorFlow", "Librosa", "Streamlit", "Scikit-Learn"],
+    description: `
                     An AI-powered web application that analyzes audio inputs to detect and classify human emotions (such as happy, sad, angry, fearful, and neutral) from speech patterns. <br/> <br/>
                     
                     Key Features:<br/>
@@ -194,7 +190,7 @@ export const PROJECTS: Project[]= [
                         <li>Integrated machine learning models with a lightweight web frontend</li>
                     </ul>
                     `,
-        role: `
+    role: `
                 Machine Learning & Full-Stack Developer <br/>
                 Spearheaded the AI model development and deployment:
                 <ul>
@@ -204,6 +200,5 @@ export const PROJECTS: Project[]= [
                     <li>📉 Performance Optimization: Tuned hyperparameters to improve real-time prediction accuracy</li>
                 </ul>
                 `,
-   }
- 
-]
+  },
+];

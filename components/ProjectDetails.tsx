@@ -19,13 +19,15 @@ export default function ProjectDetails({
       className="project-item group leading-none py-5 md:border-b first:!pt-0 last:pb-0 last:border-none"
       onMouseEnter={() => onMouseEnter(project.slug)}
     >
-      <Image
-        src={project.thumbnail}
-        alt={project.title}
-        width={300}
-        height={200}
-        className="w-full object-cover mb-6 aspect-[3/2] object-top"
-      />
+      {SelectedProject === null && (
+        <Image
+          src={project.thumbnail}
+          alt={project.title}
+          width={300}
+          height={200}
+          className="w-full object-cover mb-6 aspect-[3/2] object-top"
+        />
+      )}
       <div className="flex gap-2 md:gap-5">
         <div className="font-anton text-muted-foreground">
           {(index + 1).toString().padStart(2, "0")}
