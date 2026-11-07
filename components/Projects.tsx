@@ -4,9 +4,31 @@ import { PROJECTS } from "../lib/data";
 import SectionTitle from "./SectionTitle";
 import { useState, useRef } from "react";
 import Image from "next/image";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export default function Projects() {
   const imageContainer = useRef<HTMLDivElement>(null);
+
+  useGSAP(()=>{
+    if(window.innerWidth<768) return;
+
+    const handleMousemove = (e: MouseEvent)=>{
+      if(!containerRef.current || !imageContainer.current) return:
+
+      const containerRect = containerRef.current.getBoundingClientReact();
+      const imageRect = imageContainer.current.getBoundingClientRect();
+
+      const offsetTop = e.clientY - containerRect.y;
+    
+    };
+    window.addEventListener ('mousemove', handleMousemove);
+
+    return()=>{
+      window.removeEventListener('mousemove', handleMousemove);
+    };
+
+  },{scope: containerRef});
 
   const [SelectedProject, setSelectedProject] = useState<string | null>(
     PROJECTS[0].slug,
