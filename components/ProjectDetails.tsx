@@ -1,5 +1,6 @@
 import { Project } from "@/lib/data";
 import Image from "next/image";
+// import TechText from "./TechText";
 
 export interface Props {
   project: Project;
@@ -33,7 +34,10 @@ export default function ProjectDetails({
           {(index + 1).toString().padStart(2, "0")}
         </div>
         <div>
-          <h4 className="text-4xl xs:text-6xl font-anton">{project.title}</h4>
+          <h4 className="text-4xl xs:text-6xl font-anton">
+            {/* <TechText text={project.title} /> */}
+            {project.title}
+          </h4>
           <div className="mt-2 flex flex-wrap gap-3 text-muted-foreground text-xs">
             {project.techStack.slice(0, 3).map((tech) => (
               <span key={tech}>{tech}</span>
