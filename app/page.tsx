@@ -7,12 +7,15 @@ import ProgressBar from "@/components/ProgressBar";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
+import Sitemap from "@/components/Sitemap";
 
 export default function Home() {
+
   return (
     <>
       <Loader />
-      <Navbar />
+      {/* <Navbar /> */}
+    <Sitemap />
       <Hero />
       <ProgressBar />
       <Skills />
