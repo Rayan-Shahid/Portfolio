@@ -12,11 +12,11 @@ export default function Hero() {
               style={{ width: "100%", height: 360 }}
             >
               <ParticleText
-                text="FRONTEND DEVELOPER"
+                text="FRONTEND ENGINEER"
                 particleSize={2.2}
                 density={3}
                 color="currentColor"
-                highlightColor="#ff5a36"
+                highlightColor="#237297"
                 highlightMode="motion"
                 shape="circle"
                 intro="gather"

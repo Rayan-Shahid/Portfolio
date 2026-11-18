@@ -18,7 +18,7 @@ const socialItems = [
 export default function SiteMenu() {
   return (
     <div className="fixed inset-0 z-[100] pointer-events-none">
-      <div className="pointer-events-auto h-full">
+      <div className="pointer-events-none h-full">
         <StaggeredMenu
           position="right"
           isFixed={true}

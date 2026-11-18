@@ -106,14 +106,14 @@ export const MY_STACK = {
 
 export const MY_EXPERIENCE = [
   {
-    title: "Software Engineer (Frontend)",
+    title: "Frontend Engineer",
     company: "NP Marts",
     duration: "January 2026 - Present",
   },
   {
     title: "Frontend Developer",
     company: "Flaxtasks",
-    duration: "August 2024 - Nov 2024",
+    duration: "August 2024 - December 2025",
   },
   {
     title: "Frontend Intern",
@@ -167,9 +167,9 @@ export const PROJECTS: Project[] = [
   {
     title: "Speech Emotion Recognition",
     slug: "speech-emotion-recognition",
-    liveurl: "www.yts.com",
+    liveurl: "https://github.com/Rayan-Shahid/Speech-Emotion-Recognition",
     year: "2026",
-    thumbnail: "/logo/node.png",
+    thumbnail: "/logo/SER.webp",
     techStack: ["Python", "TensorFlow", "Librosa", "Streamlit", "Scikit-Learn"],
     description: `
                     An AI-powered web application that analyzes audio inputs to detect and classify human emotions (such as happy, sad, angry, fearful, and neutral) from speech patterns. <br/> <br/>
@@ -204,9 +204,9 @@ export const PROJECTS: Project[] = [
   {
     title: "Flaxtasks",
     slug: "flaxtasks",
-    liveurl: "https://flaxtasks.com",
-    year: "2026",
-    thumbnail: "/logo/react.png",
+    liveurl: "https://flaxtasks.vercel.app/",
+    year: "2025",
+    thumbnail: "/logo/flaxtasks.png",
     techStack: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
     description: `
                     A modern corporate company website and digital platform built for Flaxtasks to showcase enterprise services, solutions, and client success stories. <br/> <br/>
@@ -241,7 +241,7 @@ export const PROJECTS: Project[] = [
     slug: "howard-engineering",
     liveurl: "https://howardsengineering.com/",
     year: "2026",
-    thumbnail: "/logo/next.png",
+    thumbnail: "/logo/he.png",
     techStack: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
     description: `
                     A professional corporate platform built for Howard Engineering to showcase specialized engineering services, industrial projects, and technical capabilities. <br/> <br/>
