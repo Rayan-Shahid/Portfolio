@@ -55,7 +55,7 @@ const Experience = () => {
   );
 
   return (
-    <section className="py-section" id="my-experience">
+    <section className="py-section mt-8" id="my-experience">
       <div className="container" ref={containerRef}>
         <SectionTitle title="My Experience" />
         <div className="grid gap-14">

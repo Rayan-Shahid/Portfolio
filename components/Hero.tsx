@@ -1,5 +1,6 @@
 "use client";
 import ParticleText from "./ParticleText";
+import SpecularButton from "./SpecularButton";
 
 export default function Hero() {
   return (
@@ -16,7 +17,7 @@ export default function Hero() {
                 particleSize={2.2}
                 density={3}
                 color="currentColor"
-                highlightColor="#237297"
+                highlightColor="#00aeff"
                 highlightMode="motion"
                 shape="circle"
                 intro="gather"
@@ -36,11 +37,32 @@ export default function Hero() {
               />
             </span>
           </h1>
-          <p className="mt-6 text-lg max-w-lg">
+          <p className="mt-6 text-lg max-w-lg mb-4">
             Hey, I'm Rayan, a frontend developer passionate about building
             modern, responsive, and interactive web experiences.
           </p>
-          <button className="mt-9 px-6 py-3 rounded-full">Let's Talk</button>
+          <SpecularButton
+            size="md"
+            radius={18}
+            tint="#ffffff"
+            tintOpacity={0.04}
+            textColor="#f5f5f5"
+            lineColor="#ffffff"
+            baseColor="#525252"
+            intensity={1}
+            idleIntensity={0.35}
+            shineSize={10}
+            shineFade={34}
+            thickness={1.2}
+            glow={2}
+            followMouse
+            proximity={250}
+            autoAnimate={true}
+            onClick={() => console.log("clicked")}
+          >
+            Let's Talk{" "}
+          </SpecularButton>
+          {/* <button className="mt-9 px-6 py-3 rounded-full">Let's Talk</button> */}
           <div className="flex items-center gap-2 mt-3">
             <span className="size-3 rounded-full bg-green-500"></span>
             <span className="text-sm">Open to opportunities</span>

@@ -9,7 +9,7 @@ export interface Props {
   onMouseEnter: (slug: string) => void;
 }
 
-export default function ProjectDetails({
+export default function ProjectLists({
   project,
   index,
   SelectedProject,

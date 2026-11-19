@@ -3,14 +3,25 @@ export interface Project {
   slug: string;
   year: string;
   liveurl: string;
+  reportUrl?: string;
   thumbnail: string;
   techStack: string[];
   description: string;
   role: string;
 }
+
 type My_STACKitem = {
   name: string;
   icon: string;
+};
+export const GENERAL_INFO = {
+  email: "rayanshahid.dev@gmail.com",
+
+  emailSubject: "Let's collaborate on a project",
+  emailBody: "Hi Rayan, I am reaching out in regards to....",
+
+  // oldPortfolio: 'https://www.legacy.me.toinfinite.dev',
+  upworkProfile: "https://www.upwork.com/freelancers/tajmirul",
 };
 
 export const MY_STACK = {
@@ -206,7 +217,7 @@ export const PROJECTS: Project[] = [
     slug: "flaxtasks",
     liveurl: "https://flaxtasks.vercel.app/",
     year: "2025",
-    thumbnail: "/logo/flaxtasks.png",
+    thumbnail: "/logo/flaxtasks.vercel.app.png",
     techStack: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
     description: `
                     A modern corporate company website and digital platform built for Flaxtasks to showcase enterprise services, solutions, and client success stories. <br/> <br/>

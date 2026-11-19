@@ -6,21 +6,24 @@ import Hero from "@/components/Hero";
 import ProgressBar from "@/components/ProgressBar";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
-import Projects from "@/components/Projects";
 import Sitemap from "@/components/Sitemap";
+import About from "@/components/About";
+import Footer from "@/components/Footer";
+import Project from "@/components/Project";
 
 export default function Home() {
-
   return (
     <>
       <Loader />
       {/* <Navbar /> */}
-    <Sitemap />
+      <Sitemap />
       <Hero />
+      <About />
       <ProgressBar />
       <Skills />
       <Experience />
-      <Projects />
+      <Project />
+      <Footer />
       <Background />
     </>
   );

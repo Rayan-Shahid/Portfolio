@@ -30,7 +30,6 @@ export default function SiteMenu() {
           openMenuButtonColor="#fff"
           changeMenuColorOnOpen={true}
           colors={["#00227e", "#07c400"]}
-          logoUrl="/path-to-your-logo.svg"
           accentColor="#5227FF"
           onMenuOpen={() => console.log("Menu opened")}
           onMenuClose={() => console.log("Menu closed")}
