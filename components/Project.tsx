@@ -1,6 +1,7 @@
 "use client";
 
 import TransitionLink from "@/components/TransitionLink";
+import { cn } from "@/lib/utils";
 import type { Project as ProjectData } from "@/lib/data";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -12,74 +13,118 @@ gsap.registerPlugin(useGSAP);
 interface Props {
   index: number;
   project: ProjectData;
+  selectedProject: string | null;
   onMouseEnter: (slug: string) => void;
 }
 
-const Project = ({ index, project, onMouseEnter }: Props) => {
-  const iconRef = useRef<SVGSVGElement>(null);
-  const tlRef = useRef<gsap.core.Timeline | null>(null);
+const Project = ({ index, project, selectedProject, onMouseEnter }: Props) => {
+  const externalLinkSVGRef = useRef<SVGSVGElement>(null);
 
-  const { contextSafe } = useGSAP({ scope: iconRef });
+  const { context, contextSafe } = useGSAP(() => {}, {
+    scope: externalLinkSVGRef,
+    revertOnUpdate: true,
+  });
 
-  const handleEnter = contextSafe!(() => {
+  const handleMouseEnter = contextSafe?.(() => {
     onMouseEnter(project.slug);
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    // Prevent stacked infinite timelines
-    tlRef.current?.kill();
+    const arrowLine = externalLinkSVGRef.current?.querySelector(
+      "#arrow-line",
+    ) as SVGPathElement | null;
+    const arrowCurb = externalLinkSVGRef.current?.querySelector(
+      "#arrow-curb",
+    ) as SVGPathElement | null;
+    const box = externalLinkSVGRef.current?.querySelector(
+      "#box",
+    ) as SVGPathElement | null;
 
-    gsap.set(iconRef.current, { autoAlpha: 1 });
-    gsap.set(".icon-box, .icon-line, .icon-head", {
-      opacity: 0,
-      strokeDasharray: 1,
-      strokeDashoffset: 1,
-    });
+    if (box) {
+      const len = box.getTotalLength();
+      gsap.set(box, {
+        opacity: 0,
+        strokeDasharray: len,
+        strokeDashoffset: len,
+      });
+    }
+    if (arrowLine) {
+      const len = arrowLine.getTotalLength();
+      gsap.set(arrowLine, {
+        opacity: 0,
+        strokeDasharray: len,
+        strokeDashoffset: len,
+      });
+    }
+    if (arrowCurb) {
+      const len = arrowCurb.getTotalLength();
+      gsap.set(arrowCurb, {
+        opacity: 0,
+        strokeDasharray: len,
+        strokeDashoffset: len,
+      });
+    }
 
-    tlRef.current = gsap
-      .timeline({ repeat: -1, repeatDelay: 1 })
-      .to(".icon-box", { opacity: 1, strokeDashoffset: 0 })
-      .to(".icon-line", { opacity: 1, strokeDashoffset: 0 }, "<0.2")
-      .to(".icon-head", { opacity: 1, strokeDashoffset: 0 })
-      .to(iconRef.current, { autoAlpha: 0 }, "+=1");
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+    tl.to(externalLinkSVGRef.current, {
+      autoAlpha: 1,
+    })
+      .to(box, {
+        opacity: 1,
+        strokeDashoffset: 0,
+      })
+      .to(
+        arrowLine,
+        {
+          opacity: 1,
+          strokeDashoffset: 0,
+        },
+        "<0.2",
+      )
+      .to(arrowCurb, {
+        opacity: 1,
+        strokeDashoffset: 0,
+      })
+      .to(
+        externalLinkSVGRIDEaseFallback(externalLinkSVGRef.current),
+        {
+          autoAlpha: 0,
+        },
+        "+=1",
+      );
   });
 
-  const handleLeave = () => {
-    tlRef.current?.kill();
-    tlRef.current = null;
-  };
+  const handleMouseLeave = contextSafe?.(() => {
+    context.kill();
+  });
 
   return (
     <TransitionLink
       href={`/projects/${project.slug}`}
-      className="project-item group leading-none py-5 md:border-b first:!pt-0 last:pb-0 last:border-none md:group-hover/projects:opacity-30 md:hover:!opacity-100 transition-opacity"
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
-      onFocus={handleEnter}
-      onBlur={handleLeave}
+      className="project-item group leading-none py-5 md:border-b first:!pt-0 last:pb-0 last:border-none md:group-hover/projects:opacity-30 md:hover:!opacity-100 transition-all"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      {/* Mobile only: on desktop the preview panel in ProjectList is used */}
-      <Image
-        src={project.thumbnail}
-        alt={project.title}
-        width={600}
-        height={400}
-        sizes="100vw"
-        className="md:hidden w-full object-cover mb-6 aspect-[3/2] object-top"
-      />
-
+      {selectedProject === null && (
+        <Image
+          src={project.thumbnail}
+          alt={project.title}
+          width={300}
+          height={200}
+          className={cn("w-full object-cover mb-6 aspect-[3/2] object-top")}
+          key={project.slug}
+          loading="lazy"
+        />
+      )}
       <div className="flex gap-2 md:gap-5">
         <div className="font-anton text-muted-foreground">
           _{(index + 1).toString().padStart(2, "0")}.
         </div>
-
         <div>
-          <h4 className="text-4xl xs:text-6xl flex gap-4 font-anton transition-all duration-700 bg-gradient-to-r from-primary to-foreground from-[50%] to-[50%] bg-[length:200%] bg-right bg-clip-text text-transparent group-hover:bg-left group-focus-visible:bg-left">
+          <h4 className="text-4xl xs:text-6xl flex gap-4 font-anton transition-all duration-700 bg-gradient-to-r from-primary to-foreground from-[50%] to-[50%] bg-[length:200%] bg-right bg-clip-text text-transparent group-hover:bg-left">
             {project.title}
-            <span className="text-foreground opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity">
+            <span className="text-foreground opacity-0 group-hover:opacity-100 transition-all">
               <svg
-                ref={iconRef}
-                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 width="36"
                 height="36"
@@ -89,23 +134,22 @@ const Project = ({ index, project, onMouseEnter }: Props) => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                ref={externalLinkSVGRef}
               >
                 <path
-                  className="icon-box"
-                  pathLength={1}
+                  id="box"
                   d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
                 />
-                <path className="icon-line" pathLength={1} d="M10 14 21 3" />
-                <path className="icon-head" pathLength={1} d="M15 3h6v6" />
+                <path id="arrow-line" d="M10 14 21 3" />
+                <path id="arrow-curb" d="M15 3h6v6" />
               </svg>
             </span>
           </h4>
-
           <div className="mt-2 flex flex-wrap gap-3 text-muted-foreground text-xs">
-            {project.techStack.slice(0, 3).map((tech, idx, arr) => (
+            {project.techStack.slice(0, 3).map((tech, idx, stackArr) => (
               <div className="gap-3 flex items-center" key={tech}>
                 <span>{tech}</span>
-                {idx !== arr.length - 1 && (
+                {idx !== stackArr.length - 1 && (
                   <span className="inline-block size-2 rounded-full bg-background-light" />
                 )}
               </div>
@@ -116,5 +160,9 @@ const Project = ({ index, project, onMouseEnter }: Props) => {
     </TransitionLink>
   );
 };
+
+function externalLinkSVGRIDEaseFallback(el: SVGSVGElement | null) {
+  return el;
+}
 
 export default Project;
