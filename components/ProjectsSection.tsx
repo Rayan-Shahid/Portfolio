@@ -74,7 +74,7 @@ export default function ProjectsSection() {
 
   useGSAP(
     () => {
-      if (!containerRef.current) return;
+      if (!containerRef.current || window.innerWidth < 768 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
       const tl = gsap.timeline({
         scrollTrigger: {

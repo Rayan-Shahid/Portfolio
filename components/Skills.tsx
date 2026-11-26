@@ -16,6 +16,7 @@ export default function Skills() {
     const containerRef = useRef<HTMLElement>(null);
 
     useGSAP(() => {
+        if (window.innerWidth < 768 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: containerRef.current,
@@ -34,6 +35,7 @@ export default function Skills() {
     }, { scope: containerRef });
 
     useGSAP(() => {
+    if (window.innerWidth < 768 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: containerRef.current,
@@ -50,17 +52,17 @@ export default function Skills() {
 }, { scope: containerRef });
 
     return (
-        <section id="my-stack" ref={containerRef}>
-            <div className="container space-y-20">
+        <section id="my-stack" className="py-16 md:py-24" ref={containerRef}>
+            <div className="container space-y-12 md:space-y-20">
                 <SectionTitle title="My Stack" />
 
                 {Object.entries(MY_STACK).map(([Key, value]) => (
                     <div className="grid sm:grid-cols-12 mt-8" key={Key}>
-                        <div className="slide-up sm:col-span-5 text-5xl font-anton leading-none uppercase">
+                        <div className="slide-up sm:col-span-5 text-4xl sm:text-5xl font-anton leading-none uppercase mb-6 sm:mb-0">
                             {Key}
                         </div>
 
-                        <div className="sm:col-span-7 flex gap-x-11 gap-y-9 flex-wrap">
+                        <div className="sm:col-span-7 grid grid-cols-2 gap-x-5 gap-y-7 sm:flex sm:gap-x-11 sm:gap-y-9 sm:flex-wrap">
                             {value.map((data) => (
                                 <div
                                     className="slide-up flex items-center gap-3.5 leading-none"

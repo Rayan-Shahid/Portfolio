@@ -45,7 +45,7 @@ export default function Loader() {
           ))}
         </div>
 
-        <h1 className="absolute top-[40%] left-1/2 z-[1000] -translate-x-1/2 -translate-y-1/2 text-[#DFE8E6] text-8xl">
+        <h1 className="absolute top-[40%] left-1/2 z-[1000] -translate-x-1/2 -translate-y-1/2 text-[#DFE8E6] text-5xl sm:text-8xl">
           {name.map((names, index) => (
             <span
               key={index}

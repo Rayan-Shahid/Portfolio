@@ -11,6 +11,7 @@ export default function About() {
 
   useGSAP(
     () => {
+      if (window.innerWidth < 768 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       const tl = gsap.timeline({
         scrollTrigger: {
           id: "about-me-in",
@@ -32,6 +33,7 @@ export default function About() {
 
   useGSAP(
     () => {
+      if (window.innerWidth < 768 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       const tl = gsap.timeline({
         scrollTrigger: {
           id: "about-me-out",
@@ -51,9 +53,9 @@ export default function About() {
     { scope: container },
   );
   return (
-    <section className="pb-section" id="about-me">
+    <section className="pb-16 md:pb-24" id="about-me">
       <div className="container mx-auto" ref={container}>
-        <h2 className="text-4xl md:text-6xl font-thin mb-20 slide-up-and-down">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-thin mb-12 md:mb-20 slide-up-and-down">
           I enjoy turning ideas into meaningful digital experiences through
           thoughtful design and clean code.
         </h2>
@@ -61,8 +63,8 @@ export default function About() {
           This is me,
         </p>
         <div className="grid md:grid-cols-12 mt-9">
-          <div className="md:col-span-5 ">
-            <p className="text-5xl slide-up-and-down">Hi, I'm Rayan.</p>
+          <div className="md:col-span-5 mb-7 md:mb-0">
+            <p className="text-4xl md:text-5xl slide-up-and-down">Hi, I'm Rayan.</p>
           </div>
           <div className="md:col-span-7 ">
             <div className="text-lg max-w-[450px] ">

@@ -4,15 +4,23 @@ import StaggeredMenu from "./StaggeredMenu";
 
 const menuItems = [
   { label: "Home", ariaLabel: "Go to home section", link: "#home" },
-  { label: "Skills", ariaLabel: "View my skills", link: "#skills" },
-  { label: "Experience", ariaLabel: "View my experience", link: "#experience" },
-  { label: "Projects", ariaLabel: "View my projects", link: "#projects" },
+  { label: "Skills", ariaLabel: "View my skills", link: "#my-stack" },
+  {
+    label: "Experience",
+    ariaLabel: "View my experience",
+    link: "#my-experience",
+  },
+  {
+    label: "Projects",
+    ariaLabel: "View my projects",
+    link: "#selected-projects",
+  },
 ];
 
 const socialItems = [
   { label: "GitHub", link: "https://github.com/Rayan-Shahid" },
-  { label: "LinkedIn", link: "https://linkedin.com" },
-  { label: "Twitter", link: "https://twitter.com" },
+  { label: "LinkedIn", link: "https://www.linkedin.com/in/rayan-shahid-dev/" },
+  { label: "Email", link: "mailto:rayanshahid.dev@gmail.com" },
 ];
 
 export default function SiteMenu() {
@@ -27,10 +35,10 @@ export default function SiteMenu() {
           displaySocials
           displayItemNumbering={true}
           menuButtonColor="#ffffff"
-          openMenuButtonColor="#fff"
+          openMenuButtonColor="#111111"
           changeMenuColorOnOpen={true}
-          colors={["#00227e", "#07c400"]}
-          accentColor="#5227FF"
+          colors={["#01afff"]}
+          accentColor="#09b1ff"
           onMenuOpen={() => console.log("Menu opened")}
           onMenuClose={() => console.log("Menu closed")}
         />

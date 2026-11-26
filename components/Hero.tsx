@@ -4,13 +4,12 @@ import SpecularButton from "./SpecularButton";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden select-text">
-      <div className="h-screen flex justify-between items-center">
-        <div className="container mx-auto">
+    <section id="home" className="relative min-h-[100svh] w-full overflow-hidden select-text">
+      <div className="min-h-[100svh] md:h-screen flex items-center">
+        <div className="container mx-auto py-24 md:py-0">
           <h1 className="text-6xl sm:text-[80px] leading-[.95]">
             <span
-              className="block relative w-full h-[360px] pointer-events-auto select-none"
-              style={{ width: "100%", height: 360 }}
+              className="block relative w-full h-[240px] sm:h-[300px] md:h-[360px] pointer-events-auto select-none"
             >
               <ParticleText
                 text="FRONTEND ENGINEER"
@@ -37,7 +36,7 @@ export default function Hero() {
               />
             </span>
           </h1>
-          <p className="mt-6 text-lg max-w-lg mb-4">
+          <p className="mt-4 md:mt-6 text-base md:text-lg max-w-lg mb-4">
             Hey, I'm Rayan, a frontend developer passionate about building
             modern, responsive, and interactive web experiences.
           </p>
@@ -64,24 +63,23 @@ export default function Hero() {
           </SpecularButton>
           {/* <button className="mt-9 px-6 py-3 rounded-full">Let's Talk</button> */}
           <div className="flex items-center gap-2 mt-3">
-            <span className="size-3 rounded-full bg-green-500"></span>
+            <span className="size-3 rounded-full bg-[#B9E9FF]"></span>
             <span className="text-sm">Open to opportunities</span>
           </div>
-        </div>
-        <div className="absolute bottom-[10%] right-[4%] flex flex-col gap-8 text-right">
-          <div>
-            <h2 className="text-4xl">2+</h2>
-            <p>Years of Experience</p>
-          </div>
 
-          <div>
-            <h2 className="text-4xl"> 10 </h2>
-            <p>Completed Projects</p>
-          </div>
-
-          <div>
-            <h2 className="text-4xl">1000+</h2>
-            <p>Hours Worked</p>
+          <div className="mt-10 grid grid-cols-3 gap-3 text-center md:absolute md:bottom-[10%] md:right-[4%] md:flex md:flex-col md:gap-8 md:text-right md:mt-0">
+            <div>
+              <h2 className="text-2xl md:text-4xl">2+</h2>
+              <p className="text-xs md:text-base">Years of Experience</p>
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-4xl">10</h2>
+              <p className="text-xs md:text-base">Completed Projects</p>
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-4xl">1000+</h2>
+              <p className="text-xs md:text-base">Hours Worked</p>
+            </div>
           </div>
         </div>
       </div>

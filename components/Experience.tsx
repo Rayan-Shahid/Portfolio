@@ -16,6 +16,7 @@ const Experience = () => {
   // Entrance animation
   useGSAP(
     () => {
+      if (window.innerWidth < 768 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -37,6 +38,7 @@ const Experience = () => {
   // Exit animation
   useGSAP(
     () => {
+      if (window.innerWidth < 768 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -55,14 +57,14 @@ const Experience = () => {
   );
 
   return (
-    <section className="py-section mt-8" id="my-experience">
+    <section className="py-16 md:py-24 mt-8" id="my-experience">
       <div className="container" ref={containerRef}>
         <SectionTitle title="My Experience" />
-        <div className="grid gap-14">
+        <div className="grid gap-10 md:gap-14">
           {MY_EXPERIENCE.map((item) => (
             <div className="experience-item" key={item.title}>
               <p className="text-xl text-muted-foreground">{item.company}</p>
-              <p className="text-5xl font-anton leading-none mt-3.5 mb-2.5">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-anton leading-none mt-3.5 mb-2.5">
                 {" "}
                 {item.title}{" "}
               </p>

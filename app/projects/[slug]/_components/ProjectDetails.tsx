@@ -64,6 +64,7 @@ const ProjectDetails = ({ project }: Props) => {
   // Parallax effect on preview container
   useGSAP(
     () => {
+      if (window.innerWidth < 768 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       gsap.utils
         .toArray<HTMLDivElement>("#images > div")
         .forEach((imageDiv, i) => {
@@ -96,8 +97,8 @@ const ProjectDetails = ({ project }: Props) => {
 
         <div className="top-0 min-h-[calc(100svh-100px)] flex" id="info">
           <div className="relative w-full">
-            <div className="flex items-start gap-6 mx-auto mb-10 max-w-[635px]">
-              <h1 className="fade-in-later opacity-0 text-4xl md:text-[60px] leading-none font-anton overflow-hidden">
+            <div className="flex flex-wrap items-start gap-4 sm:gap-6 mx-auto mb-10 max-w-[635px]">
+              <h1 className="fade-in-later opacity-0 text-3xl sm:text-4xl md:text-[60px] leading-none font-anton overflow-hidden">
                 <span className="inline-block">{project.title}</span>
               </h1>
 
@@ -127,7 +128,7 @@ const ProjectDetails = ({ project }: Props) => {
               </div>
             </div>
 
-            <div className="max-w-[635px] space-y-7 pb-20 mx-auto">
+            <div className="max-w-[635px] space-y-7 pb-10 sm:pb-20 mx-auto">
               <div className="fade-in-later">
                 <p className="text-muted-foreground font-anton mb-3">Year</p>
                 <div className="text-lg">{project.year}</div>
@@ -184,7 +185,7 @@ const ProjectDetails = ({ project }: Props) => {
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label="View full image"
-                className="absolute top-4 right-4 bg-background/70 text-foreground size-12 inline-flex justify-center items-center transition-all opacity-0 hover:bg-primary hover:text-primary-foreground group-hover:opacity-100"
+                className="absolute top-4 right-4 bg-background/70 text-foreground size-10 sm:size-12 inline-flex justify-center items-center transition-all opacity-100 md:opacity-0 hover:bg-primary hover:text-primary-foreground md:group-hover:opacity-100"
               >
                 <ExternalLink />
               </a>

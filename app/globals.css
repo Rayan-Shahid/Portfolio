@@ -52,6 +52,19 @@
   margin-inline: auto;
   width: 100%;
   max-width: 80rem;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-inline: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-inline: 1.5rem;
+  }
 }
 
 :root {
@@ -129,8 +142,10 @@
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: clip;
   }
   html {
     @apply font-sans;
+    overflow-x: clip;
   }
 }

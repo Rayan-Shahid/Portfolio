@@ -121,7 +121,7 @@ const Project = ({ index, project, selectedProject, onMouseEnter }: Props) => {
           _{(index + 1).toString().padStart(2, "0")}.
         </div>
         <div>
-          <h4 className="text-4xl xs:text-6xl flex gap-4 font-anton transition-all duration-700 bg-gradient-to-r from-primary to-foreground from-[50%] to-[50%] bg-[length:200%] bg-right bg-clip-text text-transparent group-hover:bg-left">
+          <h4 className="text-3xl sm:text-4xl md:text-6xl flex gap-4 font-anton transition-all duration-700 bg-gradient-to-r from-primary to-foreground from-[50%] to-[50%] bg-[length:200%] bg-right bg-clip-text text-transparent group-hover:bg-left">
             {project.title}
             <span className="text-foreground opacity-0 group-hover:opacity-100 transition-all">
               <svg
