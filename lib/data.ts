@@ -252,7 +252,7 @@ export const PROJECTS: Project[] = [
     slug: "howard-engineering",
     liveurl: "https://howardsengineering.com/",
     year: "2026",
-    thumbnail: "/logo/he.png",
+    thumbnail: "/logo/howardsengineering.com.png",
     techStack: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
     description: `
                     A professional corporate platform built for Howard Engineering to showcase specialized engineering services, industrial projects, and technical capabilities. <br/> <br/>
