@@ -7,9 +7,9 @@ export default function Hero() {
     <section id="home" className="relative min-h-[100svh] w-full overflow-hidden select-text">
       <div className="min-h-[100svh] md:h-screen flex items-center">
         <div className="container mx-auto py-24 md:py-0">
-          <h1 className="text-6xl sm:text-[80px] leading-[.95]">
+          <h1 className="leading-[.95]">
             <span
-              className="block relative w-full h-[240px] sm:h-[300px] md:h-[360px] pointer-events-auto select-none"
+              className="hidden md:block relative w-full h-[360px] pointer-events-auto select-none"
             >
               <ParticleText
                 text="FRONTEND ENGINEER"
@@ -34,6 +34,13 @@ export default function Hero() {
                 fontFamily="inherit"
                 glow
               />
+            </span>
+            <span className="flex h-[220px] items-center justify-center text-center text-[clamp(2rem,9vw,3.5rem)] font-extrabold md:hidden">
+              <span>
+                FRONTEND
+                <br />
+                ENGINEER
+              </span>
             </span>
           </h1>
           <p className="mt-4 md:mt-6 text-base md:text-lg max-w-lg mb-4">
